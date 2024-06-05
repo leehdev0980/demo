@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: beige;
+}
+
+input[type = "text"]{
+    width: auto;
+    padding: 5px 10px 5px 10px;
+    margin: auto;
+    box-sizing: border-box;
+    box-shadow: inset;
+    font-size: 16px;
+
+}
+#task0{
+    background-color: white;
+    color: black;
+    margin:auto;
+    border: solid;
+    border-bottom-color: purple; 
+}
+#add-btn{
+    background-color: rgb(60, 151, 224);
+    color: white;
+    height: 35px;
+    width: 45px;
+    margin:auto;
+    border: 2px solid black;
+    border-radius: 3px;
+    font-size: 16px;
+
+}
+#del-btn{
+    background-color: red;
+    color: white;
+    height: 35px;
+    margin:auto;
+    border: solid;
+    border-color: black;
+    font-size: 16px;
+}
+h1{
+    text-align: center;
+}
+p{
+    border: 3px;
+    border-color:rgb(255, 255, 255);
+    border-style: solid;
+    font-size: 16px;
+
+}
+li{
+    list-style-type: none;
+}

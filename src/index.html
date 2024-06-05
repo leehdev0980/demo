@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TodoListApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href = "styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+  <app-root></app-root>
+  <div ng-app="myApp" ng-controller="tasksCtrl">  
+    <h1>TodoList</h1> 
+    <input id = "task0"  ng-model="task.input"  type="text" placeholder = "New task">
+    <button id = "add-btn" type="button" ng-click="addTask()"> Add </button>
+    <button id = "del-btn" type="button" ng-click="clearTasks()"> Clear </button>
+    <br>
+    <ul>
+      <li ng-repeat = "taskItem in tasks">
+          <input type="checkbox" ng-model="taskItem.done" > 
+          {{taskItem.name}} 
+      </li>
+    </ul>
+    <p>{{ errorText }}</p>
+  </div>
+ 
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('tasksCtrl',function($scope){
+      $scope.tasks = [];
+      $scope.addTask= function() {
+        if (!$scope.task || !$scope.task.input){
+          return;
+        }
+        if (!$scope.tasks.find(function(task) { return task.name === $scope.task.input })) {
+          $scope.tasks.push({ name: $scope.task.input, done: false });
+          $scope.task.input = "";
+        } else {
+          $scope.errorText = "The task already exists";
+        }
+
+      };
+      $scope.taskItem = [];
+      $scope.clearTasks = function(){
+        $scope.tasks = $scope.tasks.filter(function(taskItem){
+          return !taskItem.done;
+        });
+      };
+      
+    });
+  </script>
+</body>
+</html>
